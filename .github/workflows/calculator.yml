@@ -21,3 +21,12 @@ jobs:
 
       - name: Run the tests
         run: npm test
+
+      - name: Build the release files
+        run: npm run build
+      - name: Upload the release
+        uses: actions/upload-artifact@v7
+        with:
+          name: calculator-release
+          path: dist/
+          if-no-files-found: error
